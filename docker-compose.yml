@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - server/.env
+    depends_on:
+      - mongo
+    restart: unless-stopped
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: ai-resume-analyzer
+    volumes:
+      - mongo-data:/data/db
+volumes:
+  mongo-data:

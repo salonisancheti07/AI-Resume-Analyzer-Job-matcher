@@ -1,0 +1,13 @@
+node_modules
+client/node_modules
+server/node_modules
+backend/__pycache__
+backend/*.pyc
+*.log
+*.sqlite
+*.db
+**/.env
+**/.env.*
+.git
+Dockerfile*
+docker-compose*.yml
